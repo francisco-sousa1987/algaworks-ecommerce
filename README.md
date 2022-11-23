@@ -14,3 +14,4 @@
 
 - Iniciando com JPA
 - Mapeamento básico
+- Mapeamento de relacionamentos
