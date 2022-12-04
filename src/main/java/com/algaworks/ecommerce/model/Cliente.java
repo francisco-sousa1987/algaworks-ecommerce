@@ -1,6 +1,5 @@
 package com.algaworks.ecommerce.model;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,19 +10,13 @@ import java.util.Map;
 
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @SecondaryTable(
         name = "cliente_detalhe",
         pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id")
 )
 @Entity
 @Table(name = "cliente")
-public class Cliente {
-
-    @EqualsAndHashCode.Include
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Cliente extends EntidadeBaseInteger {
 
     private String nome;
 
