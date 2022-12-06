@@ -16,3 +16,4 @@
 - Mapeamento básico;
 - Mapeamento de relacionamentos;
 - Conhecendo o EntityManager;
+- Mapeamento avançado

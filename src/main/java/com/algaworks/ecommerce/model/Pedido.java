@@ -2,7 +2,6 @@ package com.algaworks.ecommerce.model;
 
 import com.algaworks.ecommerce.listener.GenericoListener;
 import com.algaworks.ecommerce.listener.GerarNotaFiscalListener;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,16 +12,10 @@ import java.util.List;
 
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @EntityListeners({GerarNotaFiscalListener.class, GenericoListener.class})
 @Entity
 @Table(name = "pedido")
-public class Pedido {
-
-    @EqualsAndHashCode.Include
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Pedido extends EntidadeBaseInteger {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "cliente_id")
@@ -31,10 +24,10 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens;
 
-    @Column(name = "data_criacao")
+    @Column(name = "data_criacao", updatable = false)
     private LocalDateTime dataCriacao;
 
-    @Column(name = "data_ultima_atualizacao")
+    @Column(name = "data_ultima_atualizacao", insertable = false)
     private LocalDateTime dataUltimaAtualizacao;
 
     @Column(name = "data_conclusao")
@@ -49,7 +42,7 @@ public class Pedido {
     private StatusPedido status;
 
     @OneToOne(mappedBy = "pedido")
-    private PagamentoCartao pagamento;
+    private Pagamento pagamento;
 
     @Embedded
     private EnderecoEntregaPedido enderecoEntrega;
