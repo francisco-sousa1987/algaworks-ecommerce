@@ -17,3 +17,4 @@
 - Mapeamento de relacionamentos;
 - Conhecendo o EntityManager;
 - Mapeamento avançado
+- Mapeando entidades para geração do DDL;

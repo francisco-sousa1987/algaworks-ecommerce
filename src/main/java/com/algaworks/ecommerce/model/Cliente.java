@@ -15,10 +15,16 @@ import java.util.Map;
         pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id")
 )
 @Entity
-@Table(name = "cliente")
+@Table(
+        name = "cliente",
+        uniqueConstraints = {@UniqueConstraint(name = "unq_cpf", columnNames = {"cpf"})},
+        indexes = {@Index(name = "idx_nome", columnList = "nome")}
+)
 public class Cliente extends EntidadeBaseInteger {
 
     private String nome;
+
+    private String cpf;
 
     @ElementCollection
     @CollectionTable(
