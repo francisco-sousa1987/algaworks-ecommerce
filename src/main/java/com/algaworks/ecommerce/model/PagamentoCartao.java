@@ -13,6 +13,6 @@ import javax.persistence.Entity;
 @Entity
 public class PagamentoCartao extends Pagamento {
 
-    @Column(name = "codigo_barras", length = 100, nullable = false)
-    private String numeroCartao; // varchar(50) not null
+    @Column(name = "numero_cartao", length = 50)
+    private String numeroCartao;
 }
