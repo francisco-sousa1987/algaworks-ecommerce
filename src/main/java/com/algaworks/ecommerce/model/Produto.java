@@ -20,19 +20,18 @@ import java.util.List;
 )
 public class Produto extends EntidadeBaseInteger {
 
-    @Column(name = "data_criacao", updatable = false)
+    @Column(name = "data_criacao", updatable = false, nullable = false)
     private LocalDateTime dataCriacao;
 
     @Column(name = "data_ultima_atualizacao", insertable = false)
     private LocalDateTime dataUltimaAtualizacao;
 
-    @Column(length = 100, nullable = false) // nome varchar(100) not null
+    @Column(length = 100, nullable = false)
     private String nome;
 
     @Column(columnDefinition = "varchar(275) not null default 'descricao'")
     private String descricao;
 
-    @Column(precision = 10, scale = 2) // preco decimal(10, 2)
     private BigDecimal preco;
 
     @Lob
@@ -54,7 +53,7 @@ public class Produto extends EntidadeBaseInteger {
             name = "produto_tag",
             joinColumns = @JoinColumn(name = "produto_id")
     )
-    @Column(name = "tag")
+    @Column(name = "tag", length = 50, nullable = false)
     private List<String> tags;
 
     @ElementCollection
