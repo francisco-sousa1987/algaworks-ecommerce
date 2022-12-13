@@ -14,7 +14,11 @@ public class NotaFiscal extends EntidadeBaseInteger {
 
     @MapsId
     @OneToOne(optional = false)
-    @JoinColumn(name = "pedido_id")
+    @JoinColumn(
+            name = "pedido_id",
+            nullable = false,
+            foreignKey = @ForeignKey(name = "fk_nota_fiscal_pedido")
+    )
 //    @JoinTable(
 //            name = "pedido_nota_fiscal",
 //            joinColumns = @JoinColumn(name = "nota_fiscal_id", unique = true),
@@ -22,9 +26,10 @@ public class NotaFiscal extends EntidadeBaseInteger {
 //    )
     private Pedido pedido;
 
+    @Column(nullable = false)
     @Lob
     private byte[] xml;
 
-    @Column(name = "data_emissao")
-    private Date dataEmissao;
+    @Column(name = "data_emissao", nullable = false)
+    private Date dataEmissao; // datetime(6) not null
 }

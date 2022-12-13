@@ -14,7 +14,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Atributo {
 
-    private String nome;
+    private String nome; // varchar(100) not null
 
     private String valor;
 }
