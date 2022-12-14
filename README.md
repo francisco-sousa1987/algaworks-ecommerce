@@ -18,3 +18,4 @@
 - Conhecendo o EntityManager;
 - Mapeamento avançado
 - Mapeando entidades para geração do DDL;
+- Operações em cascata;
