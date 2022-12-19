@@ -19,3 +19,4 @@
 - Mapeamento avançado
 - Mapeando entidades para geração do DDL;
 - Operações em cascata;
+- JPQL do básico ao avançado;
