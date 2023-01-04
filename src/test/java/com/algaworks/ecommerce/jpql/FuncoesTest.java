@@ -10,6 +10,18 @@ import java.util.List;
 public class FuncoesTest extends EntityManagerTest {
 
     @Test
+    public void aplicarFuncaoColecao() {
+        String jpql = "select size(p.itens) from Pedido p where size(p.itens) > 1";
+
+        TypedQuery<Integer> typedQuery = entityManager.createQuery(jpql, Integer.class);
+
+        List<Integer> lista = typedQuery.getResultList();
+        Assert.assertFalse(lista.isEmpty());
+
+        lista.forEach(size -> System.out.println(size));
+    }
+
+    @Test
     public void aplicarFuncaoNumero() {
         String jpql = "select abs(p.total), mod(p.id, 2), sqrt(p.total) from Pedido p " +
                 " where abs(p.total) > 1000";
@@ -29,7 +41,7 @@ public class FuncoesTest extends EntityManagerTest {
         // year(p.dataCriacao), month(p.dataCriacao), day(p.dataCriacao)
 
         String jpql = "select hour(p.dataCriacao), minute(p.dataCriacao), second(p.dataCriacao) " +
-                " from Pedido p where hour(p.dataCriacao) > 9";
+                " from Pedido p where hour(p.dataCriacao) > 0";
 
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
 
