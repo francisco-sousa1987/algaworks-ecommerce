@@ -56,7 +56,7 @@ public class PrimeiroCrudTest extends EntityManagerTest {
 
     @Test
     public void removerRegistro() {
-        Cliente cliente = entityManager.find(Cliente.class, 2);
+        Cliente cliente = entityManager.find(Cliente.class, 3);
 
         entityManager.getTransaction().begin();
         entityManager.remove(cliente);

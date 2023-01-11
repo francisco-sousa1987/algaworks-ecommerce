@@ -121,7 +121,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
 
     @Test
     public void removerObjeto() {
-        Produto produto = entityManager.find(Produto.class, 4);
+        Produto produto = entityManager.find(Produto.class, 2);
 
         entityManager.getTransaction().begin();
         entityManager.remove(produto);
@@ -129,7 +129,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
 
 //        entityManager.clear(); Não é necessário na asserção para operação de remoção
 
-        Produto produtoVerificacao = entityManager.find(Produto.class, 4);
+        Produto produtoVerificacao = entityManager.find(Produto.class, 2);
         Assert.assertNull(produtoVerificacao);
     }
 
