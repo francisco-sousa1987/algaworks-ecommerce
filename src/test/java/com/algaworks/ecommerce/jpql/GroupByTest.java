@@ -20,10 +20,21 @@ public class GroupByTest extends EntityManagerTest {
 //                " group by year(p.dataCriacao), month(p.dataCriacao) ";
 
 //         Total de vendas por categoria.
-        String jpql = "select c.nome, sum(ip.precoProduto) from ItemPedido ip " +
-                " join ip.produto pro join pro.categorias c " +
-                " group by c.id";
+//        String jpql = "select c.nome, sum(ip.precoProduto) from ItemPedido ip " +
+//                " join ip.produto pro join pro.categorias c " +
+//                " group by c.id";
 
+//        Total de vendas por cliente
+//        String jpql = "select c.nome, sum(ip.precoProduto) from ItemPedido ip " +
+//                " join ip.pedido p join p.cliente c " +
+//                " group by c.id";
+
+//        Total de vendas por dia e por categoria
+        String jpql = "select date(p.dataCriacao), " +
+                " concat(c.nome, ': ', sum(ip.precoProduto * ip.quantidade)) " +
+                " from ItemPedido ip join ip.pedido p join ip.produto pro join pro.categorias c " +
+                " group by date(p.dataCriacao), c.id " +
+                " order by date(p.dataCriacao), c.nome ";
 
         TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
 
