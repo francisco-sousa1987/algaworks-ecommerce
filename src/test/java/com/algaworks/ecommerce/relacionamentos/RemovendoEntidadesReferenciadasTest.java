@@ -21,6 +21,6 @@ public class RemovendoEntidadesReferenciadasTest extends EntityManagerTest {
         entityManager.clear();
 
         Pedido pedidoVerificacao = entityManager.find(Pedido.class, 1);
-        Assert.assertNull(pedidoVerificacao);
+        Assert.assertTrue(pedidoVerificacao.getItens().isEmpty());
     }
 }
