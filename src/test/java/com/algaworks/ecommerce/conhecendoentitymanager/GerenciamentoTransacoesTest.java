@@ -20,7 +20,7 @@ public class GerenciamentoTransacoesTest extends EntityManagerTest {
     }
 
     private void metodoDeNegocio() {
-        Pedido pedido = entityManager.find(Pedido.class, 1);
+        Pedido pedido = entityManager.find(Pedido.class, 5);
         pedido.setStatus(StatusPedido.PAGO);
 
         if (pedido.getPagamento() == null) {
